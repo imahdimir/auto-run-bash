@@ -3,6 +3,8 @@
 # Reads conf.json in PWD, gets the latest release of the target GitHub repo then
 #   executes the target python script.
 
+ipwd=$PWD
+
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -37,6 +39,9 @@ pyenv exec python3 $m2r
 
 echo -e "$fst Deactivate the new venv: $venv\n"
 pyenv deactivate $venv
+
+echo -e "$fst cd back to initial pwd $ipwd\n"
+cd $ipwd
 
 echo -e "$fst Re-activate $av venv\n"
 pyenv activate $av
