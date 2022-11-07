@@ -10,50 +10,62 @@
 # Assumptions:
 #   1. main.sh would be downloaded in a dir by the dlmain.sh
 
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
-echo "$frst changing dir to the parent dir\n"
+ipwd=$PWD
+
+echo -e "$fst changing dir to the parent dir\n"
 cd ..
+echo -e "$fst PWD is now $PWD"
 
-echo "$frst Make the new venv and ret its name\n"
-venv=$(python -c 'from mirutil.auto_run import make_venv; make_venv();')
-echo "venv: $venv"
+echo -e "$fst Make the new venv and return its name\n"
+venv=$(python -c 'from autorunpy import auto; auto.make_venv();')
+echo -e "$fst venv: $venv"
 
-echo "$frst Download latset release of the target GitHub repo and ret its local dirpath\n"
-dirn=$(python -c 'from mirutil.auto_run import ret_dirn; ret_dirn();')
-echo "dirname: $dirn"
+echo -e "$fst Download latset release of the conf target GitHub repo and ret its local dirpath\n"
+dirn=$(python -c 'from autorunpy import auto; auto.ret_dirn();')
+echo -e "The dirpath: $dirn"
 
-echo "$frst return the module name to run from conf.json\n"
-m2r=$(python -c 'from mirutil.auto_run import ret_module_2_run_name; ret_module_2_run_name();')
-echo "module 2 run: $m2r"
+echo -e "$fst Return the module name to run from conf.json\n"
+m2r=$(python -c 'from autorunpy import auto; auto.ret_module_2_run_name();')
+echo -e "$fst Python module to running: $m2r"
 
-echo "$frst Deactivate auto-run venv\n"
-pyenv deactivate $autovenv
+echo -e "$fst Deactivate $av venv\n"
+pyenv deactivate $av
 
-echo "$frst Changing dir to $dirn\n"
+echo -e "$fst cd to $dirn\n"
 cd $dirn
+echo -e "$fst PWD is now $PWD"
 
-echo "$frst Activating the new venv: $venv\n"
+echo -e "$fst Activating the new venv: $venv\n"
 pyenv activate $venv
 
-echo "$frst Installing dependencies from requirements.txt\n"
+echo -e "$fst Installing dependencies from requirements.txt\n"
 pyenv exec pip install --upgrade pip
 pyenv exec pip install -r requirements.txt
 
-echo "$frst Executing the target module $m2r\n"
+echo -e "$fst Execute the target module $m2r using the $venv venv\n "
 pyenv exec python3 $m2r
 
-echo "$frst cd back to the parent dir\n"
+echo -e "$fst cd back to the parent dir\n"
 cd ..
+echo -e "$fst PWD is now $PWD"
 
-echo "$frst Deactivating and removing the new venv: $venv\n"
+echo -e "$fst Deactivate the new venv: $venv\n"
 pyenv deactivate $venv
-pyenv virtualenv-delete -f $venv
 
-echo "$frst rm the new dir which contains the code\n"
+echo -e "$fst Re-activate $av venv"
+pyenv activate $av
+
+python -c 'from autorunpy import auto; auto.rm_venv();'
+
+echo -e "$fst rm the new dir which contains the code: $dirn\n"
 rm -r $dirn
 
-echo "$frst cd to main.sh dir"
-cd $mdir
+echo -e "$fst cd to initial dir $ipwd"
+cd $ipwd
 
 
 
