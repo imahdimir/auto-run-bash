@@ -6,27 +6,13 @@
 # requirements: 
 #   1. pyenv
 #   2. pyenv-virtualenv
+#
+# Assumptions:
+#   1. main.sh would be downloaded in a dir by the dlmain.sh
 
 
-export pyv=3.6:latset
-
-export frst="\nLOG: "
-
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-echo "$frst Installing Python Version: $pyv\n"
-pyenv install --skip-existing $pyv
-
-echo "$frst Createing and activating auto-run venv\n"
-pyenv virtualenv $pyv auto-run
-pyenv activate auto-run
-
-
-echo "$frst Installing last version of mirutil\n"
-pip install --upgrade pip
-pip install --upgrade mirutil
+echo "$frst changing dir to the parent dir\n"
+cd ..
 
 echo "$frst Make the new venv and ret its name\n"
 venv=$(python -c 'from mirutil.auto_run import make_venv; make_venv();')
@@ -40,9 +26,8 @@ echo "$frst return the module name to run from conf.json\n"
 m2r=$(python -c 'from mirutil.auto_run import ret_module_2_run_name; ret_module_2_run_name();')
 echo "module 2 run: $m2r"
 
-echo "$frst Deactivate and delete auto-run venv\n"
-pyenv deactivate auto
-pyenv virtualenv-delete -f auto
+echo "$frst Deactivate auto-run venv\n"
+pyenv deactivate $autovenv
 
 echo "$frst Changing dir to $dirn\n"
 cd $dirn
@@ -67,6 +52,8 @@ pyenv virtualenv-delete -f $venv
 echo "$frst rm the new dir which contains the code\n"
 rm -r $dirn
 
+echo "$frst cd to main.sh dir"
+cd $mdir
 
 
 
