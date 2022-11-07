@@ -10,59 +10,61 @@
 
 export pyv=3.6:latset
 
+export frst="\nLOG: "
+
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-echo "Install Python $pyv"
+echo "$frst Installing Python Version: $pyv\n"
 pyenv install --skip-existing $pyv
 
-echo "createing and activating auto-run venv"
+echo "$frst Createing and activating auto-run venv\n"
 pyenv virtualenv $pyv auto-run
 pyenv activate auto-run
 
 
-echo "Installing last version of mirutil"
+echo "$frst Installing last version of mirutil\n"
 pip install --upgrade pip
 pip install --upgrade mirutil
 
-echo "Make the new venv and ret its name"
+echo "$frst Make the new venv and ret its name\n"
 venv=$(python -c 'from mirutil.auto_run import make_venv; make_venv();')
 echo "venv: $venv"
 
-echo "Download latset release of the target GitHub repo and ret its local dirpath"
+echo "$frst Download latset release of the target GitHub repo and ret its local dirpath\n"
 dirn=$(python -c 'from mirutil.auto_run import ret_dirn; ret_dirn();')
 echo "dirname: $dirn"
 
-echo "return the module name to run from conf.json"
+echo "$frst return the module name to run from conf.json\n"
 m2r=$(python -c 'from mirutil.auto_run import ret_module_2_run_name; ret_module_2_run_name();')
 echo "module 2 run: $m2r"
 
-echo "Deactivate and delete auto-run venv"
+echo "$frst Deactivate and delete auto-run venv\n"
 pyenv deactivate auto
 pyenv virtualenv-delete -f auto
 
-echo "Changing dir to $dirn"
+echo "$frst Changing dir to $dirn\n"
 cd $dirn
 
-echo "Activating the new venv: $venv"
+echo "$frst Activating the new venv: $venv\n"
 pyenv activate $venv
 
-echo "Installing dependencies from requirements.txt"
+echo "$frst Installing dependencies from requirements.txt\n"
 pyenv exec pip install --upgrade pip
 pyenv exec pip install -r requirements.txt
 
-echo "Executing the target module $m2r"
+echo "$frst Executing the target module $m2r\n"
 pyenv exec python3 $m2r
 
-echo "cd back to the parent dir"
+echo "$frst cd back to the parent dir\n"
 cd ..
 
-echo "Deactivating and removing the new venv: $venv"
+echo "$frst Deactivating and removing the new venv: $venv\n"
 pyenv deactivate $venv
 pyenv virtualenv-delete -f $venv
 
-echo "rm the new dir which contains the code"
+echo "$frst rm the new dir which contains the code\n"
 rm -r $dirn
 
 
