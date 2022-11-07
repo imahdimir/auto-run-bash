@@ -25,12 +25,12 @@ pyenv deactivate $av
 echo -e "$fst Activating the new venv: $venv\n"
 pyenv activate $venv
 
+echo -e "$fst cd to $dirp\n"
+cd $dirp
+
 echo -e "$fst Install reqs from requirements.txt in the new $venv venv\n"
 pyenv exec pip install --upgrade pip
 pyenv exec pip install -r requirements.txt
-
-echo -e "$fst cd to $dirp\n"
-cd $dirp
 
 echo -e "$fst Execute the target module $m2r using the $venv venv\n"
 pyenv exec python3 $m2r
