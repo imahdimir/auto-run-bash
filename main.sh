@@ -3,12 +3,9 @@
 # Reads conf.json in PWD, gets the latest release of the target GitHub repo then
 #   executes the target python script.
 
-
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
-ipwd=$PWD
 
 echo -e "$fst Make a new venv and return its name\n"
 venv=$(python -c 'from autorunpy import auto; auto.make_venv();')
@@ -34,7 +31,6 @@ pyenv exec pip install -r requirements.txt
 
 echo -e "$fst cd to $dirp\n"
 cd $dirp
-echo -e "$fst PWD is now $PWD\n"
 
 echo -e "$fst Execute the target module $m2r using the $venv venv\n"
 pyenv exec python3 $m2r
@@ -47,18 +43,6 @@ pyenv activate $av
 
 echo -e "$fst Delete [If said so in conf] new created venv : $venv\n"
 pyenv exec python3 -c 'from autorunpy import auto; auto.rm_venv();'
-
-echo -e "$fst rm the new dir which contains the code: $dirp\n"
-rm -r $dirp
-
-echo -e "$fst cd to initial dir $ipwd\n"
-cd $ipwd
-
-
-
-
-
-
 
 
 
