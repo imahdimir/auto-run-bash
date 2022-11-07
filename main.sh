@@ -42,6 +42,7 @@ pyenv deactivate $venv
 
 echo -e "$fst cd back to initial pwd $ipwd\n"
 cd $ipwd
+echo -e "$fst Now PWD is $PWD"
 
 echo -e "$fst Re-activate $av venv\n"
 pyenv activate $av
