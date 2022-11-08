@@ -30,11 +30,14 @@ pyenv exec pip install --upgrade pip
 pyenv exec pip install --upgrade autorunpy
 
 echo -e "$fst finding the parent dir of the conf: $1"
-cpd=$(pyenv exec python -m autorunpy.get_conf_parent_dir)
+cpd=$(pyenv exec python -m autorunpy.get_conf_parent_dir $1)
 
 echo -e "$fst cd to conf parent dir: $cpd"
 cd $cpd
 echo -e "$fst PWD is now: $PWD"
+
+echo -e "$fst Update all run configs\n"
+
 
 echo -e "$fst Make a new venv and return its name\n"
 venv=$(pyenv exec python -m autorunpy.make_venv $1)
@@ -75,9 +78,9 @@ echo -e "$fst Re-activate $av venv\n"
 pyenv activate $av
 
 echo -e "$fst Delete [If said so in conf] new created venv : $venv\n"
-pyenv exec python -m autorunpy.rm_venv
+pyenv exec python -m autorunpy.rm_venv $1
 
 echo -e "$fst rm the dir which contains the code: $dirp\n"
 rm -r $dirp
 
-echo -e "$fst \n\n***FINISHED***\n\n"
+echo -e "\n\n***FINISHED***\n\n"
