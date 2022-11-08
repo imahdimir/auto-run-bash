@@ -38,7 +38,7 @@ echo -e "$fst PWD is now: $PWD"
 
 echo -e "$fst Update all run configs\n"
 git fetch --all
-git reset --hard origin/master
+git reset --hard origin/main
 
 echo -e "$fst Make a new venv and return its name\n"
 venv=$(pyenv exec python -m autorunpy.make_venv $1)
