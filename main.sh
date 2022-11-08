@@ -13,3 +13,5 @@ git fetch --all
 git reset --hard origin/main
 
 bash m1.sh $@
+
+echo -e "\n\n***FINISHED***\n\n"

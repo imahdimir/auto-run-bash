@@ -83,5 +83,3 @@ pyenv exec python -m autorunpy.rm_venv $1
 
 echo -e "$fst rm the dir which contains the code: $dirp\n"
 rm -r $dirp
-
-echo -e "\n\n***FINISHED***\n\n"
