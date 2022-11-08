@@ -29,20 +29,23 @@ echo -e "$fst Upgrade pip, autorunpy pkgs in the $av venv\n"
 pyenv exec pip install --upgrade pip
 pyenv exec pip install --upgrade autorunpy
 
-echo -e "$fst cd to conf.json dir: $1"
-cd $1
+echo -e "$fst finding the parent dir of the conf: $1"
+cpd=$(pyenv exec python -m autorunpy.get_conf_parent_dir)
+
+echo -e "$fst cd to conf parent dir: $cpd"
+cd $cpd
 echo -e "$fst PWD is now: $PWD"
 
 echo -e "$fst Make a new venv and return its name\n"
-venv=$(pyenv exec python -m autorunpy.make_venv)
+venv=$(pyenv exec python -m autorunpy.make_venv $1)
 echo -e "$fst venv name: $venv\n"
 
 echo -e "$fst Download latset release of the conf target GitHub repo and ret its local dirpath\n"
-dirp=$(pyenv exec python -m autorunpy.dl_and_ret_dirpath)
+dirp=$(pyenv exec python -m autorunpy.dl_and_ret_dirpath $1)
 echo -e "The dirpath: $dirp"
 
 echo -e "$fst Return the module name to run from conf.json\n"
-m2r=$(pyenv exec python -m autorunpy.ret_module_2_run_name)
+m2r=$(pyenv exec python -m autorunpy.ret_module_2_run_name $1)
 echo -e "$fst Python module to running: $m2r\n"
 
 echo -e "$fst Deactivate $av venv\n"
@@ -64,8 +67,8 @@ pyenv exec python3 $m2r
 echo -e "$fst Deactivate the new venv: $venv\n"
 pyenv deactivate $venv
 
-echo -e "$fst cd back to conf dir: $1\n"
-cd $1
+echo -e "$fst cd back to conf dir: $cpd\n"
+cd $cpd
 echo -e "$fst PWD is now: $PWD"
 
 echo -e "$fst Re-activate $av venv\n"
