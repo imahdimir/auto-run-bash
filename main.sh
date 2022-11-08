@@ -14,4 +14,4 @@ git reset --hard origin/main
 
 bash m1.sh $@
 
-echo -e "\n\n\t\t***FINISHED***\n\n"
+echo -e "\n\n\t\t\t***FINISHED***\n\n"
