@@ -1,11 +1,15 @@
 #! /bin/bash
 
-# """  """.
+# """ Reads the conf.json file then download latest version of the 
+#       target repo and executes it. """.
 # 
 # requirements: 
 #   1. pyenv
 #   2. pyenv-update
 #   3. pyenv-virtualenv
+#
+# arguements:
+#   1. conf.json path
 
 export pyv=3.10.5
 

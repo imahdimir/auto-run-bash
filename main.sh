@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # """ Updates itself (especially the next bash script) 
 #       then passes entered arguments to the next bash script """.
@@ -7,6 +7,10 @@
 #   1. git
 
 export fst="\n  LOG:"
+
+echo -e "$fst cd to self dir"
+cd $0
+echo -e "PWD is now: $PWD"
 
 echo -e "$fst Self Update\n"
 git fetch --all
