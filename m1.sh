@@ -33,7 +33,7 @@ echo -e "$fst Upgrade pip, autorunpy pkgs in the $av venv\n"
 pyenv exec pip install --upgrade pip
 pyenv exec pip install --upgrade autorunpy
 
-export cpd=dirname $1
+export cpd=$(dirname $1)
 echo -e "$fst cd to conf parent dir: $cpd"
 cd $cpd
 echo -e "$fst PWD is now: $PWD"
