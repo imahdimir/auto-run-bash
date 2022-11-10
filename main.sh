@@ -8,9 +8,9 @@
 
 export fst="\n  LOG:"
 
-echo -e "$fst cd to self dir"
-cd $0
-echo -e "PWD is now: $PWD"
+echo -e "$fst cd to self dir\n"
+cd $(dirname $0)
+echo -e "PWD is now: $PWD\n"
 
 echo -e "$fst Self Update\n"
 git fetch --all
