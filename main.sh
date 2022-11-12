@@ -19,7 +19,7 @@ bash m1.sh $@
 
 if [ $? -eq 0 ]; then
    echo OK
-   mail -s "OK - $hostname" $MAILTO
+   echo "" | mail -s "OK - $hostname" $MAILTO
 else
    echo FAIL
    mail -s "FAIL - $hostname" $MAILTO
