@@ -10,12 +10,16 @@ export fst="\n  LOG:"
 
 echo -e "$fst cd to self dir\n"
 cd $(dirname $0)
-echo -e "PWD is now: $PWD\n"
 
 echo -e "$fst Self Update\n"
 git fetch --all
 git reset --hard origin/main
 
 bash m1.sh $@
+if [ $? -eq 0 ]; then
+   echo OK
+else
+   echo FAIL
+fi
 
 echo -e "\n\n\t\t\t***   FINISHED   ***\n\n"
