@@ -8,7 +8,7 @@
 
 export fst="\n  LOG:"
 
-echo -e "$fst cd to self dir\n"
+echo -e "$fst cd to self dir: $0\n"
 cd $(dirname $0)
 
 echo -e "$fst Self Update (runner bash script)\n"
