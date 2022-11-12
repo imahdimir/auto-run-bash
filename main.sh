@@ -11,15 +11,18 @@ export fst="\n  LOG:"
 echo -e "$fst cd to self dir\n"
 cd $(dirname $0)
 
-echo -e "$fst Self Update\n"
+echo -e "$fst Self Update (runner bash script)\n"
 git fetch --all
 git reset --hard origin/main
 
 bash m1.sh $@
+
 if [ $? -eq 0 ]; then
    echo OK
+   mail -s "OK - $hostname" $MAILTO
 else
    echo FAIL
+   mail -s "FAIL - $hostname" $MAILTO
 fi
 
 echo -e "\n\n\t\t\t***   FINISHED   ***\n\n"
