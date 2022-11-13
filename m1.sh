@@ -38,7 +38,7 @@ echo -e "$fst cd to conf parent dir: $cpd"
 cd $cpd
 echo -e "$fst PWD is now: $PWD"
 
-echo -e "$fst Update all run configs\n"
+echo -e "$fst Update all autorun configs\n"
 git fetch --all
 git reset --hard origin/main
 
