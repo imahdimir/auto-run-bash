@@ -15,10 +15,9 @@ echo -e "$fst Self Update (runner bash script)\n"
 git fetch --all
 git reset --hard origin/main
 
-bash m1.sh $@
-
 cfn=$(echo "$1" | sed -E "s/.+\/([^\/]+)$/\1/")
 
+bash m1.sh $@
 if [ $? -eq 0 ]; then
    echo OK
    echo " " | mail -s "OK - $hostname - $cfn" $MAILTO
