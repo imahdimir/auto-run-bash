@@ -20,10 +20,10 @@ cfn=$(echo "$1" | sed -E "s/.+\/([^\/]+)$/\1/")
 bash m1.sh $@
 if [ $? -eq 0 ]; then
    echo OK
-   echo " " | mail -s "OK - $hostname - $cfn" $MAILTO
+   echo "" | mail -s "OK - $hostname - $cfn" $MAILTO
 else
    echo FAIL
-   echo " " | mail -s "FAIL - $hostname - $cfn" $MAILTO
+   echo "" | mail -s "FAIL - $hostname - $cfn" $MAILTO
 fi
 
 echo -e "\n\n\t\t\t***   FINISHED   ***\n\n"
