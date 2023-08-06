@@ -5,12 +5,14 @@
 
 ## requirements: 
 ##   1. pyenv
-##   2. pyenv-update
+##   2. pyenv-update plugin for pyenv
 ##   3. pyenv-virtualenv
 
 # arguements:
 #   1. conf.json path
 
+
+## keep some constants as variables
 export pyv=3.11.4
 export av=autorunpy
 
@@ -19,28 +21,36 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-echo -e "$fst update pyenv\n"
-pyenv update
 
+## update pyenv by the pyenv-update plugin and suppress the output
+# echo -e "$fst update pyenv\n"
+pyenv update &>n.out
+
+
+## install the python version for the autorunpy venv if not installed
 # echo -e "$fst Install Python Version: $pyv\n"
-# pyenv install --skip-existing $pyv
+pyenv install --skip-existing $pyv &>n.out
 
+
+## create the autorunpy venv if not created and activate it
 # echo -e "$fst Create and activate $av venv\n"
-# pyenv virtualenv $pyv $av
-# pyenv activate $av
+pyenv virtualenv $pyv $av &>n.out
+pyenv activate $av &>n.out
 
+
+## upgrade pip and autorunpy package
 # echo -e "$fst Upgrade pip, autorunpy pkgs in the $av venv\n"
-# pyenv exec pip install --upgrade pip
-# pyenv exec pip install --upgrade autorunpy
+pyenv exec pip install --upgrade pip -q
+pyenv exec pip install --upgrade autorunpy -q
 
-# export cpd=$(dirname $1)
-# echo -e "$fst cd to conf parent dir: $cpd"
-# cd $cpd
-# echo -e "$fst PWD is now: $PWD"
+export cpd=$(dirname $1)
+echo -e "$fst cd to conf parent dir: $cpd"
+cd $cpd
+echo -e "$fst PWD is now: $PWD"
 
 # echo -e "$fst Update all autorun configs\n"
-# git fetch --all
-# git reset --hard origin/main
+git fetch --all -q
+git reset --hard origin/main -q
 
 # echo -e "$fst Make a new venv and return its name\n"
 # venv=$(pyenv exec python -m autorunpy.make_venv $1)
