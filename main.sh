@@ -33,14 +33,14 @@ cfn=$(echo "$1" | sed -E "s/.+\/([^\/]+)$/\1/")
 bash m1.sh $@
 
 
-# if [ $? -eq 0 ]; then
+if [ $? -eq 0 ]; then
 #    echo OK
-#    echo "" | mail -s "DONE - $hostname - $cfn" $MAILTO
+    echo "Done." | mail -s "DONE - $hostname - $cfn" $MAILTO
 
-# else
+else
 #    echo FAIL
-#    echo "" | mail -s "FAIL - $hostname - $cfn" $MAILTO
+   echo "Failed." | mail -s "FAILED - $hostname - $cfn" $MAILTO
 
-# fi
+fi
 
-# echo -e "\n\n\t\t\t***   FINISHED   ***\n\n"
+echo -e "\n\n\t\t\t***   FINISHED   ***\n\n"
