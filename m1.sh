@@ -17,11 +17,6 @@ export pyv=3.11.4
 export av=autorunpy
 
 
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-
 ## update pyenv by the pyenv-update plugin and suppress the output
 # echo -e "$fst update pyenv\n"
 pyenv update &>n.out
@@ -63,10 +58,12 @@ cd ..
 venv=$(pyenv exec python -m autorunpy.make_venv $1)
 # echo -e "$fst venv name: $venv\n"
 
+
 ## Download latest release of the target repo
 # echo -e "$fst Download latset release of the conf target GitHub repo and ret its local dirpath\n"
 dirp=$(pyenv exec python -m autorunpy.dl_and_ret_dirpath $1)
 # echo -e "The dirpath: $dirp"
+
 
 ## return the targeted module name to run in the targe repo
 # echo -e "$fst Return the module name to run from conf.json\n"
