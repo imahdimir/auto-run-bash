@@ -43,9 +43,9 @@ pyenv activate $av &>n.out
 pyenv exec pip install --upgrade pip -q
 pyenv exec pip install --upgrade autorunpy -q
 
-export cpd=$(dirname $1)
-echo -e "$fst cd to conf parent dir: $cpd"
-cd $cpd
+
+echo -e "cd to GitHub dir (=parent dir)"
+cd ..
 echo -e "$fst PWD is now: $PWD"
 
 # echo -e "$fst Update all autorun configs\n"
