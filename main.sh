@@ -1,22 +1,24 @@
 #!/bin/bash
 
-# """ Updates itself (especially the next bash script) 
-#       then passes entered arguments to the next bash script """.
-# 
-# requirements: 
-#   1. git
+## """ Updates itself (especially the next bash script) 
+##       then passes entered arguments to the next bash script """.
+
+## requirements: 
+##   1. git
 
 
-# keep log as a variable
+## keep log as a variable
 export fst="log : "
 
 
-# cd to current dir 
-echo -e "$fst cd to self dir: $0\n"
+## cd to current dir 
+
+# echo -e "$fst cd to self dir: $0\n"
 cd $(dirname $0)
 
-# update current dir from GitHub
-echo -e "$fst Self update (runner bash script)\n"
+## update current dir from GitHub
+
+# echo -e "$fst Self update (runner bash script)\n"
 
 git fetch --all
 git reset --hard origin/main
