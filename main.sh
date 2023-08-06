@@ -35,7 +35,7 @@ bash m1.sh $@
 
 # if [ $? -eq 0 ]; then
 #    echo OK
-#    echo "" | mail -s "OK - $hostname - $cfn" $MAILTO
+#    echo "" | mail -s "DONE - $hostname - $cfn" $MAILTO
 
 # else
 #    echo FAIL
