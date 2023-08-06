@@ -49,7 +49,7 @@ pyenv exec pip install --upgrade pip autorunpy -q
 
 ## change dir to the auto-run-configs repo dir, assumed in the parent(GitHub dir)
 # echo -e "cd to GitHub dir (=parent dir)"
-cd ../auto-run-configs
+cd ../auto-run-configs/
 # echo -e "$fst PWD is now: $PWD"
 
 ## update run configs
