@@ -8,7 +8,7 @@
 
 
 ## keep log as a variable
-export fst="log : "
+fst="log : "
 
 
 ## cd to current dir 
@@ -24,7 +24,7 @@ git fetch --all
 git reset --hard origin/main -quiet
 
 
-export cfn = $(echo "$1" | sed -E "s/.+\/([^\/]+)$/\1/")
+cfn=$(echo "$1" | sed -E "s/.+\/([^\/]+)$/\1/")
 
 echo $cfn
 
