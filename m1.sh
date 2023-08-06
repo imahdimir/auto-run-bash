@@ -39,6 +39,9 @@ pyenv virtualenv $pyv $av &>n.out
 pyenv activate $av &>n.out
 
 
+## remove n.out file it was used to suppress the output and not needed anymore
+rm n.out
+
 ## upgrade pip and autorunpy package
 # echo -e "$fst Upgrade pip, autorunpy pkgs in the $av venv\n"
 pyenv exec pip install --upgrade pip autorunpy -q
