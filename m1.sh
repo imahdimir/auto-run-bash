@@ -44,54 +44,62 @@ pyenv exec pip install --upgrade pip -q
 pyenv exec pip install --upgrade autorunpy -q
 
 
-echo -e "cd to GitHub dir (=parent dir)"
-cd ..
-echo -e "$fst PWD is now: $PWD"
+## change dir to the auto-run-configs repo dir, assumed in the parent(GitHub dir)
+# echo -e "cd to GitHub dir (=parent dir)"
+cd ../auto-run-configs
+# echo -e "$fst PWD is now: $PWD"
 
+## update run configs
 # echo -e "$fst Update all autorun configs\n"
 git fetch --all -q
 git reset --hard origin/main -q
 
+
+## cd to the GitHub dir
+cd ..
+
+## make a new environment and return its name
 # echo -e "$fst Make a new venv and return its name\n"
-# venv=$(pyenv exec python -m autorunpy.make_venv $1)
+venv=$(pyenv exec python -m autorunpy.make_venv $1)
 # echo -e "$fst venv name: $venv\n"
 
+## Download latest release of the target repo
 # echo -e "$fst Download latset release of the conf target GitHub repo and ret its local dirpath\n"
-# dirp=$(pyenv exec python -m autorunpy.dl_and_ret_dirpath $1)
+dirp=$(pyenv exec python -m autorunpy.dl_and_ret_dirpath $1)
 # echo -e "The dirpath: $dirp"
 
+## return the targeted module name to run in the targe repo
 # echo -e "$fst Return the module name to run from conf.json\n"
-# m2r=$(pyenv exec python -m autorunpy.ret_module_2_run_name $1)
+m2r=$(pyenv exec python -m autorunpy.ret_module_2_run_name $1)
 # echo -e "$fst Python module to running: $m2r\n"
 
+## deactivate the autorunpy venv
 # echo -e "$fst Deactivate $av venv\n"
-# pyenv deactivate $av
+pyenv deactivate $av
 
+## Activate the new created venv
 # echo -e "$fst Activating the new venv: $venv\n"
-# pyenv activate $venv
+pyenv activate $venv
 
+## cd to the new folder containing latest version of the target repo 
 # echo -e "$fst cd to $dirp \n"
-# cd $dirp
+cd $dirp
 
+
+## Install requirements
 # echo -e "$fst Install reqs from requirements.txt in the new venv: $venv \n"
-# pyenv exec pip install --upgrade pip
-# pyenv exec pip install -r requirements.txt
+pyenv exec pip install -r requirements.txt
 
+
+## Execute the target module
 # echo -e "$fst Execute the target module $m2r using the $venv venv\n"
-# pyenv exec python3 $m2r
+pyenv exec python3 $m2r
 
-# echo -e "$fst Deactivate the new venv: $venv\n"
-# pyenv deactivate $venv
 
-# echo -e "$fst cd back to conf dir: $cpd\n"
-# cd $cpd
-# echo -e "$fst PWD is now: $PWD"
+## Remove the new venv
+pyenv virtualenv-delete $venv
 
-# echo -e "$fst Re-activate $av venv\n"
-# pyenv activate $av
 
-# echo -e "$fst Delete [If said so in conf] new created venv : $venv\n"
-# pyenv exec python -m autorunpy.rm_venv $1
-
+## remove the folder of latest release
 # echo -e "$fst rm the dir which contains the code: $dirp\n"
-# rm -r $dirp
+rm -r $dirp
