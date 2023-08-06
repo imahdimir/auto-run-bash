@@ -19,8 +19,8 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# echo -e "$fst update pyenv\n"
-# pyenv update
+echo -e "$fst update pyenv\n"
+pyenv update
 
 # echo -e "$fst Install Python Version: $pyv\n"
 # pyenv install --skip-existing $pyv
