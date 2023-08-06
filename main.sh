@@ -20,7 +20,7 @@ cd $(dirname $0)
 
 # echo -e "$fst Self update (runner bash script)\n"
 
-git fetch --all
+git fetch --all -q
 git reset --hard origin/main --quiet
 
 
