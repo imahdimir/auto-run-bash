@@ -24,7 +24,7 @@ git fetch --all
 git reset --hard origin/main -quiet
 
 
-cfn=$(echo "$1" | sed -E "s/.+\/([^\/]+)$/\1/")
+cfn = $(echo "$1" | sed -E "s/.+\/([^\/]+)$/\1/")
 
 echo $cfn
 
