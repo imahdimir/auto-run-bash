@@ -34,13 +34,13 @@ bash m1.sh $@
 
 
 if [ $? -eq 0 ]; then
-#    echo OK
-    echo "Done." | mail -s "DONE - $hostname - $cfn" $MAILTO
+
+    echo "DONE."
+    echo "DONE." | mail -s "DONE | $hostname | $cfn" $MAILTO
 
 else
-#    echo FAIL
-   echo "Failed." | mail -s "FAILED - $hostname - $cfn" $MAILTO
+    echo "FAILED."
+    echo "FAILED." | mail -s "FAILED | $hostname | $cfn" $MAILTO
 
 fi
 
-echo -e "\n\n\t\t\t***   FINISHED   ***\n\n"
