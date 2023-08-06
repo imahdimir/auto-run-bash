@@ -24,11 +24,14 @@ git fetch --all
 git reset --hard origin/main --quiet
 
 
+## get the config file name from the second argument
 cfn=$(echo "$1" | sed -E "s/.+\/([^\/]+)$/\1/")
+# echo $cfn
 
-echo $cfn
 
-# bash m1.sh $@
+## run the next bash script with the same arguments (all arguments @)
+bash m1.sh $@
+
 
 # if [ $? -eq 0 ]; then
 #    echo OK
