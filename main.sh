@@ -13,7 +13,7 @@ fst="log : "
 
 ## cd to current dir 
 
-echo -e "$fst cd to self dir: $0\n"
+# echo -e "$fst cd to self dir: $0\n"
 cd $(dirname $0)
 
 ## update current dir from GitHub
