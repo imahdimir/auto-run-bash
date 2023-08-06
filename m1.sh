@@ -11,7 +11,7 @@
 # arguements:
 #   1. conf.json path
 
-export pyv=3.10.5
+export pyv=3.11.4
 
 export av=autorunpy
 
@@ -60,10 +60,10 @@ pyenv deactivate $av
 echo -e "$fst Activating the new venv: $venv\n"
 pyenv activate $venv
 
-echo -e "$fst cd to $dirp\n"
+echo -e "$fst cd to $dirp \n"
 cd $dirp
 
-echo -e "$fst Install reqs from requirements.txt in the new $venv venv\n"
+echo -e "$fst Install reqs from requirements.txt in the new venv: $venv \n"
 pyenv exec pip install --upgrade pip
 pyenv exec pip install -r requirements.txt
 
