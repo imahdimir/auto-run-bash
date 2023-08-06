@@ -20,8 +20,8 @@ cd $(dirname $0)
 
 # echo -e "$fst Self update (runner bash script)\n"
 
-# git fetch --all
-# git reset --hard origin/main --quiet
+git fetch --all
+git reset --hard origin/main --quiet
 
 
 ## get the config file name from the second argument
