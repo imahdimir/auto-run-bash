@@ -105,7 +105,7 @@ cd $dirp
 
 # echo -e "$fst Install reqs from requirements.txt in the new venv: $venv \n"
 pyenv exec pip install --upgrade pip -q
-pyenv exec pip install -r requirements.txt -q
+pyenv exec pip install -r requirements.txt
 
 
 ## Execute the target module
