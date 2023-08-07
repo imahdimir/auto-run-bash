@@ -105,17 +105,13 @@ cd $dirp
 
 # echo -e "$fst Install reqs from requirements.txt in the new venv: $venv \n"
 pyenv exec pip install --upgrade pip -q
-pyenv exec pip install -r requirements.txt
+pyenv exec pip install -r requirements.txt -q
 
 
 ## Execute the target module
 
 # echo -e "$fst Execute the target module $m2r using the $venv venv\n"
 pyenv exec python3 $m2r
-
-
-## Remove the new venv
-pyenv virtualenv-delete -f $venv
 
 
 ## remove the folder of latest release
