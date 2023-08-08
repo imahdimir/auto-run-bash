@@ -15,8 +15,8 @@ cd $(dirname $0)
 
 ## pull current dir from GitHub
 
-# git fetch --all -q
-# git reset --hard origin/main -q
+git fetch --all -q
+git reset --hard origin/main -q
 
 
 ## get the config file name from the second argument
