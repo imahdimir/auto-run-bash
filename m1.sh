@@ -64,7 +64,7 @@ pyenv exec pip install --upgrade pip -q
 pyenv exec pip install $pkg -q
 
 ## Execute the target module
-echo eval "run the module: $m2r"
+echo $m2r
 pyenv exec python3 -m $m2r
 
 ## Deactivate the new venv
