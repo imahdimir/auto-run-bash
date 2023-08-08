@@ -25,11 +25,11 @@ eval "$(pyenv virtualenv-init -)"
 pyenv update &> /dev/null
 
 ## install the python version for the autorunpy venv if not installed
-pyenv install --skip-existing $pyv &>n.out
+pyenv install --skip-existing $pyv &> /dev/null
 
 ## create the autorunpy venv if not created and activate it
-pyenv virtualenv $pyv $av &>n.out
-pyenv activate $av &>n.out
+pyenv virtualenv $pyv $av &> /dev/null
+pyenv activate $av &> /dev/null
 
 ## upgrade pip and autorunpy package
 pyenv exec pip install --upgrade pip autorunpy -q
@@ -46,9 +46,6 @@ cd ..
 
 ## make a new environment and return its name
 venv=$(pyenv exec python -m autorunpy.make_venv $1)
-
-## remove n.out file it was used to suppress the output and not needed anymore
-rm n.out
 
 ## return pip package name from conf.json
 pkg=$(pyenv exec python -m autorunpy.ret_pkg_name $1)
