@@ -14,7 +14,6 @@ cd $(dirname $0)
 
 
 ## pull current dir from GitHub
-
 git fetch --all -q
 git reset --hard origin/main -q
 
