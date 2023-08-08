@@ -1,7 +1,7 @@
 #!/bin/bash
 
-## """ Updates itself (especially the next bash script) 
-##       then passes entered arguments to the next bash script """.
+## Updates itself (especially the next bash script) 
+##  then passes entered arguments to the next bash script.
 
 ## requirements: 
 ##   1. git

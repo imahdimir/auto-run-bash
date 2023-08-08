@@ -1,7 +1,7 @@
 #! /bin/bash
 
-## """ Reads the conf.json file then download latest version of the 
-##       target repo and executes it. """.
+## Reads the conf.json file then download latest version of the 
+##  target repo and executes it.
 
 ## requirements: 
 ##   1. pyenv
