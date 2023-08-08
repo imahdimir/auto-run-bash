@@ -22,7 +22,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 ## update pyenv by the pyenv-update plugin and suppress the output
-pyenv update &>n.out
+pyenv update &> /dev/null
 
 ## install the python version for the autorunpy venv if not installed
 pyenv install --skip-existing $pyv &>n.out
