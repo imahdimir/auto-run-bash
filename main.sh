@@ -8,9 +8,6 @@
 
 ##
 
-## run ~/.bashrc to get the env variables
-source ~/.bashrc
-
 ## cd to current dir 
 cd $(dirname $0)
 # echo -e "PWD : $PWD"

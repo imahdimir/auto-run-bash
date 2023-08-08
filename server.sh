@@ -27,6 +27,3 @@ echo "eval "$(pyenv virtualenv-init -)"" >> ~/.bashrc
 
 ## restart shell
 exec $SHELL
-
-## define auto in the ~/.bashrc
-echo 'export auto="bash /root/auto-run-bash/main.sh"' >> ~/.bashrc
