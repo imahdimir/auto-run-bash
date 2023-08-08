@@ -6,20 +6,14 @@
 ## requirements: 
 ##   1. git
 
-
-## keep log as a variable
-fst="log : "
-
+##
 
 ## cd to current dir 
-
-# echo -e "$fst cd to self dir: $0\n"
 cd $(dirname $0)
-# echo -e "$fst PWD : $PWD"
+# echo -e "PWD : $PWD"
 
 
 ## update current dir from GitHub
-
 # echo -e "$fst Self update (runner bash script)\n"
 
 # git fetch --all -q
