@@ -12,7 +12,7 @@
 #   1. conf.json path
 
 # add pyenv to PATH (crontab doesn't have it)
-export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(export PATH="$HOME/.pyenv/bin:$PATH")"
 
 ## keep some constants as variables
 export pyv=3.11.4
