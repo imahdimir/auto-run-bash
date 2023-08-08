@@ -31,9 +31,6 @@ pyenv install --skip-existing $pyv &>n.out
 pyenv virtualenv $pyv $av &>n.out
 pyenv activate $av &>n.out
 
-## remove n.out file it was used to suppress the output and not needed anymore
-rm n.out
-
 ## upgrade pip and autorunpy package
 pyenv exec pip install --upgrade pip autorunpy -q
 
@@ -49,6 +46,9 @@ cd ..
 
 ## make a new environment and return its name
 venv=$(pyenv exec python -m autorunpy.make_venv $1)
+
+## remove n.out file it was used to suppress the output and not needed anymore
+rm n.out
 
 ## return pip package name from conf.json
 pkg=$(pyenv exec python -m autorunpy.ret_pkg_name $1)
