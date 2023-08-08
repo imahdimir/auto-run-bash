@@ -11,6 +11,8 @@
 # arguements:
 #   1. conf.json path
 
+# add pyenv to PATH (crontab doesn't have it)
+export PATH="$HOME/.pyenv/bin:$PATH"
 
 ## keep some constants as variables
 export pyv=3.11.4
@@ -18,6 +20,7 @@ export av=autorunpy
 
 ## following lines are needed for pyenv to work properly, for deactivate the venv properly
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
