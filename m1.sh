@@ -49,12 +49,15 @@ cd ..
 
 ## make a new environment and return its name
 venv=$(pyenv exec python -m autorunpy.make_venv $1)
+echo "venv: $venv"
 
 ## return pip package name from conf.json
 pkg=$(pyenv exec python -m autorunpy.ret_pkg_name $1)
+echo "pkg: $pkg"
 
 ## return the targeted module name to run in the targe repo
 m2r=$(pyenv exec python -m autorunpy.ret_module_2_run $1)
+echo "module to run: $m2r"
 
 ## deactivate the autorunpy venv
 pyenv deactivate $av
