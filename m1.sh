@@ -22,7 +22,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 ## update pyenv by the pyenv-update plugin and suppress the output
-pyenv update &> /dev/null
+pyenv update #&> /dev/null
 
 ## install the python version for the autorunpy venv if not installed
 pyenv install --skip-existing $pyv &> /dev/null
@@ -64,7 +64,7 @@ pyenv exec pip install --upgrade pip -q
 pyenv exec pip install $pkg -q
 
 ## Execute the target module
-echo "module to run: $m2r"
+# echo "module to run: $m2r"
 pyenv exec python3 -m $m2r
 
 ## Deactivate the new venv
