@@ -3,6 +3,7 @@
 git clone https://github.com/imahdimir/auto-run-bash
 git clone https://github.com/imahdimir/auto-run-configs
 
+## install pip3
 apt install python3-pip
 
 ## requirements for pyenv
@@ -27,3 +28,7 @@ echo "eval "$(pyenv virtualenv-init -)"" >> ~/.bashrc
 
 ## restart shell
 exec $SHELL
+
+## install the crontab by crontab -e command for now manually and the github token file.json
+
+# echo "eval "$(export auto="$SHELL $HOME/auto-run-bash/main.sh")"" >> ~/.bashrc
