@@ -13,7 +13,7 @@
 
 # add pyenv to PATH (crontab doesn't have it)
 export PATH="$HOME/.pyenv/bin:$PATH"
-echo $PATH
+# echo $PATH
 
 ## keep some constants as variables
 export pyv=3.11.4
@@ -54,7 +54,7 @@ echo "venv: $venv"
 
 ## return pip package name from conf.json
 pkg=$(pyenv exec python -m autorunpy.ret_pkg_name $1)
-echo "pkg: $pkg"
+# echo "pkg: $pkg"
 
 ## return the targeted module name to run in the targe repo
 m2r=$(pyenv exec python -m autorunpy.ret_module_2_run $1)
