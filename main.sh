@@ -13,8 +13,7 @@ cd $(dirname $0)
 # echo -e "PWD : $PWD"
 
 
-## update current dir from GitHub
-# echo -e "$fst Self update (runner bash script)\n"
+## pull current dir from GitHub
 
 # git fetch --all -q
 # git reset --hard origin/main -q
