@@ -10,7 +10,7 @@
 
 ## cd to current dir 
 cd $(dirname $0)
-echo -e "PWD : $PWD"
+# echo -e "PWD : $PWD"
 
 
 ## pull current dir from GitHub
