@@ -22,27 +22,27 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 ## update pyenv by the pyenv-update plugin and suppress the output
-pyenv update &>n.out
+pyenv update # &>n.out
 
 ## install the python version for the autorunpy venv if not installed
-pyenv install --skip-existing $pyv &>n.out
+pyenv install --skip-existing $pyv # &>n.out
 
 ## create the autorunpy venv if not created and activate it
-pyenv virtualenv $pyv $av &>n.out
-pyenv activate $av &>n.out
+pyenv virtualenv $pyv $av # &>n.out
+pyenv activate $av # &>n.out
 
 ## remove n.out file it was used to suppress the output and not needed anymore
-rm n.out
+# rm n.out
 
 ## upgrade pip and autorunpy package
-pyenv exec pip install --upgrade pip autorunpy -q
+pyenv exec pip install --upgrade pip autorunpy # -q
 
 ## change dir to the auto-run-configs repo dir, assumed in the parent(GitHub dir)
 cd ../auto-run-configs/
 
 ## update run configs
-git fetch --all -q
-git reset --hard origin/main -q
+git fetch --all # -q
+git reset --hard origin/main # -q
 
 ## cd to the GitHub dir
 cd ..
@@ -63,10 +63,11 @@ pyenv deactivate $av
 pyenv activate $venv
 
 ## Install the package from pip in the new venv and its dependencies
-pyenv exec pip install --upgrade pip -q
-pyenv exec pip install $pkg -q
+pyenv exec pip install --upgrade pip # -q
+pyenv exec pip install $pkg # -q
 
 ## Execute the target module
+echo "running the module"
 pyenv exec python3 -m $m2r
 
 ## Deactivate the new venv

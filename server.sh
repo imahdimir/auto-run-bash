@@ -21,8 +21,8 @@ exec $SHELL
 
 ## install virtualenv plugin for pyenv
 git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
-
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
 ## restart shell
 exec $SHELL
+
