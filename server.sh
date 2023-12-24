@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# install git
+sudo apt-get install git-all
+
 git clone https://github.com/imahdimir/auto-run-bash
 git clone https://github.com/imahdimir/auto-run-configs
 
