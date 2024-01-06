@@ -1,12 +1,12 @@
 #!/bin/bash
 
-"""
+<< doc
 Updates itself (especially the next bash script),
 then passes entered arguments to the next bash script.
 
 requirements: 
     - git
-"""
+doc
 
 # cd to current dir 
 cd $(dirname $0)

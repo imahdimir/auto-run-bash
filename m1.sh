@@ -1,6 +1,6 @@
 #! /bin/bash
 
-"""
+<< doc
 Reads the conf.json file then download latest version of the target repo and executes it.
 
 Requirements: 
@@ -10,7 +10,7 @@ Requirements:
 
 arguements:
     - conf.json path
-"""
+doc
 
 # add pyenv to PATH (crontab doesn't have it)
 export PATH="$HOME/.pyenv/bin:$PATH"
