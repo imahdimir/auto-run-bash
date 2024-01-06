@@ -26,11 +26,11 @@ bash m1.sh $@
 ## evalueate the exit code of the previous command to see if it's successful or not
 if [ $? -eq 0 ]; then
 
-    echo "DONE."
+    echo "DONE"
     # echo "DONE." | mail -s "Done | $hostname | $cfn" $MAILTO
 
 else
-    echo "FAILED."
+    echo "FAILED"
     echo $?
     # echo "FAILED." | mail -s "FAILED | $hostname | $cfn" $MAILTO
 

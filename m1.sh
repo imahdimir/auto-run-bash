@@ -16,7 +16,7 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 # echo $PATH
 
 ## keep some constants as variables
-export pyv=3.11.4
+export pyv=3.12.0
 export av=autorunpy
 
 ## following lines are needed for pyenv to work properly, for deactivate the venv properly
