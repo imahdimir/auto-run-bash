@@ -5,7 +5,6 @@ Reads the conf.json file then download latest version of the target repo and exe
 
 Requirements: 
     - pyenv
-    - pyenv-update plugin for pyenv
     - pyenv-virtualenv
 
 arguements:
@@ -13,20 +12,17 @@ arguements:
 doc
 
 # add pyenv to PATH (crontab doesn't have it)
-export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="$(pyenv root)/bin:$PATH"
 
-# some constants
-export pyv=3.12.0
-export av=autorunpy
+# constants
+pyv=3.12.2
+av=autorunpy
 
 # following lines are needed for pyenv to work properly, to deactivate the venv properly
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
-# update pyenv by the pyenv-update plugin and suppress the output
-pyenv update &> /dev/null
 
 # install the python version for the autorunpy venv if not installed
 pyenv install --skip-existing $pyv &> /dev/null
@@ -56,7 +52,7 @@ echo "venv: $venv"
 pkg=$(pyenv exec python -m autorunpy.ret_pkg_name $1)
 # echo "pkg: $pkg"
 
-# return the targeted module name to run in the targe repo
+# return target module name to run in the targe repo
 m2r=$(pyenv exec python -m autorunpy.ret_module_2_run $1)
 echo "module to run: $m2r"
 

@@ -17,7 +17,7 @@ apt-get install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadlin
 curl https://pyenv.run | bash
 
 # Add pyenv to PATH
-echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="$(pyenv root)/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
 
 # Restart shell
@@ -26,6 +26,7 @@ exec $SHELL
 # Install pyenv virtualenv plugin
 git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 
+# add to .bashrc
 echo "eval "$(pyenv init -)"" >> ~/.bashrc
 echo "eval "$(pyenv virtualenv-init -)"" >> ~/.bashrc
 
