@@ -32,5 +32,8 @@ echo "eval "$(pyenv virtualenv-init -)"" >> ~/.bashrc
 
 exec $SHELL
 
+# set tz
+timedatectl set-timezone America/Los_Angeles
+
 # touch .gt in $HOME
 # config cron
