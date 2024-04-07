@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 << doc
 Reads the conf.json file then download latest version of the target repo and executes it.
@@ -14,13 +14,12 @@ doc
 
 # add pyenv to PATH (crontab doesn't have it)
 export PATH="$HOME/.pyenv/bin:$PATH"
-# echo $PATH
 
-# keep some constants as variables
+# some constants
 export pyv=3.12.0
 export av=autorunpy
 
-# following lines are needed for pyenv to work properly, for deactivate the venv properly
+# following lines are needed for pyenv to work properly, to deactivate the venv properly
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
@@ -39,14 +38,14 @@ pyenv activate $av &> /dev/null
 # upgrade pip and autorunpy package
 pyenv exec pip install --upgrade pip autorunpy -q
 
-# change dir to the auto-run-configs repo dir, assumed in the parent(GitHub dir)
+# change dir to the auto-run-configs repo dir, assumed the same dir as auto-run-bash
 cd ../auto-run-configs/
 
 # update run configs
 git fetch --all -q
 git reset --hard origin/main -q
 
-# cd to the GitHub dir
+# cd to the parent dir
 cd ..
 
 # make a new environment and return its name
