@@ -1,7 +1,4 @@
-## Manually add by me
 venv
-.idea
-n.out
 
 # General
 .DS_Store
@@ -192,4 +189,3 @@ Network Trash Folder
 Temporary Items
 .apdisk
 ~$data.xlsx
-n.out

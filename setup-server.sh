@@ -27,7 +27,6 @@ exec $SHELL
 git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 
 # add to .bashrc
-echo "eval "$(pyenv init -)"" >> ~/.bashrc
 echo "eval "$(pyenv virtualenv-init -)"" >> ~/.bashrc
 
 exec $SHELL
