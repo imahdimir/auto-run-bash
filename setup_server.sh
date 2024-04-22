@@ -3,8 +3,8 @@
 # Install git
 sudo apt-get install git-all
 
-git clone https://github.com/imahdimir/auto-run-bash
-git clone https://github.com/imahdimir/auto-run-configs
+git clone https://github.com/imahdimir/auto_run_bash
+git clone https://github.com/imahdimir/auto_run_configs
 
 # Install pip3
 apt install python3-pip
