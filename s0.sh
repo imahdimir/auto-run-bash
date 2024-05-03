@@ -8,13 +8,13 @@ requirements:
     - git
 doc
 
-# cd to current dir 
-cd $(dirname $0)
+cd "$HOME/auto_run_bash"
 
 # self update
 git fetch --all -q
 git reset --hard origin/main -q
 
+return
 # run the next bash script with the same arguments (all arguments @)
 bash s1.sh $@
 
