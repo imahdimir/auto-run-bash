@@ -30,4 +30,3 @@ else
     echo $?
     # echo "FAILED." | mail -s "FAILED | $hostname | $cfn" $MAILTO
 fi
-

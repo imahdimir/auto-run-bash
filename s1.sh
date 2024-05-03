@@ -35,14 +35,14 @@ pyenv activate $av &> /dev/null
 pyenv exec pip install --upgrade pip autorunpy -q
 
 # change dir to the auto-run-configs repo dir, assumed the same dir as auto-run-bash
-cd ../auto-run-configs/
+cd /root/auto_run_configs/
 
 # update run configs
 git fetch --all -q
 git reset --hard origin/main -q
 
-# cd to the parent dir
-cd ..
+# cd to the home dir
+cd
 
 # make a new environment and return its name
 venv=$(pyenv exec python -m autorunpy.make_venv $1)
