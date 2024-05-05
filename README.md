@@ -12,7 +12,7 @@ apt install python3-pip
 
 # Install pyenv
 - Use Its installation guide on GitHub
-
+https://github.com/pyenv/pyenv-installer
 - don't forget pyenv reqs
 
 - Install pyenv virtualenv it is now included in pyenv installation, make sure it is installed
