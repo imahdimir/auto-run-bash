@@ -1,4 +1,4 @@
-How to Setup a New Server
+How to Setup a New Server:
 
 # Install git
 ```
@@ -10,23 +10,27 @@ sudo apt-get install git-all
 apt install python3-pip
 ```
 
-# Install pyenv, use Its installation guide on GitHub
+# Install pyenv
+Use Its installation guide on GitHub
+
 pyenv reqs
+
 Install pyenv virtualenv it is now included in pyenv installation, make sure it is installed
+
 Add pyenv root to PATH and eval it on basrch, read the guide
 
-# Restart shell
+# Restart Shell
 ```
 exec $SHELL
 ```
 
-# clone auto run tool and configs
+# Clone Auto Run Tool and Run Configs
 ```
 git clone https://github.com/imahdimir/auto_run_bash
 git clone https://github.com/imahdimir/auto_run_configs
 ```
 
-# set tz
+# Set tz
 ```
 timedatectl set-timezone America/Los_Angeles
 ```
