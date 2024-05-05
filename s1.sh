@@ -1,9 +1,9 @@
 #!/bin/bash
 
 << doc
-Reads the conf.json file then download latest version of the target repo and executes it.
+Reads the conf.json file then downloads latest version of the target repo and executes it.
 
-Requirements: 
+Reqs: 
     - pyenv
     - pyenv-virtualenv
 
@@ -27,11 +27,13 @@ eval "$(pyenv virtualenv-init -)"
 # install the python version for the autorunpy venv if not installed
 pyenv install --skip-existing $pyv &> /dev/null
 
-# create the autorunpy venv if not created and activate it
+echo "Create the autorunpy venv if not created yet"
 pyenv virtualenv $pyv $av &> /dev/null
+
+echo "Activating $av"
 pyenv activate $av &> /dev/null
 
-# upgrade pip and autorunpy package
+echo "Upgrade pip and autorunpy Pkg"
 pyenv exec pip install --upgrade pip autorunpy -q
 
 # make a new environment and return its name
