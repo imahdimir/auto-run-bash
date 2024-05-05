@@ -36,7 +36,7 @@ pyenv activate $av &> /dev/null
 echo "Upgrade pip and autorunpy Pkg"
 pyenv exec pip install --upgrade pip autorunpy -q
 
-# make a new environment and return its name
+echo "Make a new venv and ret its name"
 venv=$(pyenv exec python -m autorunpy.make_venv $1)
 echo "venv: $venv"
 
