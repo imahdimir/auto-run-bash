@@ -21,5 +21,5 @@ git clone https://github.com/imahdimir/auto_run_configs
 # set tz
 timedatectl set-timezone America/Los_Angeles
 
-# copy .gt.json to HOME
+# copy .gt.json to $HOME
 # config cron
