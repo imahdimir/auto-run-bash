@@ -14,7 +14,6 @@ cd "$HOME/auto_run_bash"
 git fetch --all -q
 git reset --hard origin/main -q
 
-return
 # run the next bash script with the same arguments (all arguments @)
 bash s1.sh $@
 

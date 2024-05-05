@@ -15,7 +15,7 @@ doc
 export PATH="$(pyenv root)/bin:$PATH"
 
 # constants
-pyv=3.12.2
+pyv=3.12.3
 av=autorunpy
 
 # following lines are needed for pyenv to work properly, to deactivate the venv properly
@@ -35,7 +35,7 @@ pyenv activate $av &> /dev/null
 pyenv exec pip install --upgrade pip autorunpy -q
 
 # change dir to the auto-run-configs repo dir, assumed the same dir as auto-run-bash
-cd /root/auto_run_configs/
+cd "$HOME/auto_run_configs/"
 
 # update run configs
 git fetch --all -q
