@@ -11,13 +11,13 @@ apt install python3-pip
 ```
 
 # Install pyenv
-Use Its installation guide on GitHub
+- Use Its installation guide on GitHub
 
-pyenv reqs
+- don't forget pyenv reqs
 
-Install pyenv virtualenv it is now included in pyenv installation, make sure it is installed
+- Install pyenv virtualenv it is now included in pyenv installation, make sure it is installed
 
-Add pyenv root to PATH and eval it on basrch, read the guide
+- Add pyenv root to PATH and eval it on basrch, read the guide
 
 # Restart Shell
 ```
