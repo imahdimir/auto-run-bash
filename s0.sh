@@ -5,23 +5,23 @@ reqs:
     - git
 doc
 
-# Update Configs
+echo Update Configs
 cd "$HOME/auto_run_configs/"
 git fetch --all -q
 git reset --hard origin/main -q
 
-# Self Update
+echo Self Update
 cd "$HOME/auto_run_bash"
 git fetch --all -q
 git reset --hard origin/main -q
 
 if [ $# -eq 0 ]; then
-    >&2 echo "No args provided, Just doing Self Update"
+    >&2 echo No args provided, Just doing Self Update
     exit 0
 fi
 
-# Run Next Script, Same Args (All Args @)
-echo "Conf Name: $@"
+echo Running s1.sh, passing all Args "(@)"
+echo Conf Name: $@
 bash s1.sh $@
 
 if [ $? -eq 0 ]; then

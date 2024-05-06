@@ -27,46 +27,46 @@ eval "$(pyenv virtualenv-init -)"
 # install the python version for the autorunpy venv if not installed
 pyenv install --skip-existing $pyv &> /dev/null
 
-echo "Create the autorunpy venv if not created yet"
+echo Create the autorunpy venv if not created yet
 pyenv virtualenv $pyv $av &> /dev/null
 
-echo "Activating $av"
+echo Activating $av
 pyenv activate $av &> /dev/null
 
-echo "Upgrade pip and autorunpy Pkg"
+echo Upgrade pip and autorunpy Pkg
 pyenv exec pip install --upgrade pip autorunpy -q
 
-echo "Make a new venv and ret its name"
+echo Make a new venv and ret its name
 venv=$(pyenv exec python -m autorunpy.make_venv $1)
 echo "venv: $venv"
 
-# return pip package name from conf.json
+echo return pip package name from conf.json
 pkg=$(pyenv exec python -m autorunpy.ret_pkg_name $1)
 echo "pkg: $pkg"
 
-# return target module name to run in the targe repo
+echo return target module name to run in the targe repo
 m2r=$(pyenv exec python -m autorunpy.ret_module_2_run $1)
 echo "module to run: $m2r"
 
-# deactivate the autorunpy venv
+echo Deactivating autorunpy venv
 pyenv deactivate $av
 
-# Activate the new created venv
+echo Activate the new created venv
 pyenv activate $venv
 
-# Install the package from pip in the new venv and its dependencies
+echo Install target package from pip in the new venv and its reqs
 pyenv exec pip install --upgrade pip -q
 pyenv exec pip install $pkg -q
 
-# Execute the target module
-echo "module to run: $m2r"
+echo Execute the target module
+echo module to run: $m2r
 pyenv exec python3 -m $m2r
 
-# Deactivate the new venv
+echo Deactivating new venv: $venv
 pyenv deactivate $venv
 
-# activate the autorunpy venv
+echo Re-activate $av venv
 pyenv activate $av
 
-# remove the new venv (if specified in the conf.json)
+echo Removing new venv if specified in the config
 pyenv exec python3 -m autorunpy.rm_venv $1
