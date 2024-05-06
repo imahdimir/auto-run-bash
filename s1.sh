@@ -41,10 +41,6 @@ if [ $# -eq 0 ]; then
     exit 0
 fi
 
-echo Conf Name: $@
-echo $PWD
-echo $HOME
-
 echo Make a new venv and ret its name
 venv=$(pyenv exec python -m autorunpy.make_venv $1)
 echo venv: $venv

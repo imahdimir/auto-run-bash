@@ -17,8 +17,8 @@ apt-get install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadlin
 ```
 
 # Install pyenv
-- Use Its installation guide on GitHub
-https://github.com/pyenv/pyenv-installer
+- Use Its installation guide on GitHub https://github.com/pyenv/pyenv-installer
+
 - don't forget pyenv reqs
 
 - Install pyenv virtualenv it is now included in pyenv installation, make sure it is installed
