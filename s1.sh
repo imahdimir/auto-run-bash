@@ -38,15 +38,15 @@ pyenv exec pip install --upgrade pip autorunpy -q
 
 echo Make a new venv and ret its name
 venv=$(pyenv exec python -m autorunpy.make_venv $1)
-echo "venv: $venv"
+echo venv: $venv
 
 echo return pip package name from conf.json
 pkg=$(pyenv exec python -m autorunpy.ret_pkg_name $1)
-echo "pkg: $pkg"
+echo pkg: $pkg
 
 echo return target module name to run in the targe repo
 m2r=$(pyenv exec python -m autorunpy.ret_module_2_run $1)
-echo "module to run: $m2r"
+echo module to run: $m2r
 
 echo Deactivating autorunpy venv
 pyenv deactivate $av
