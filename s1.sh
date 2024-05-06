@@ -36,6 +36,11 @@ pyenv activate $av &> /dev/null
 echo Upgrade pip and autorunpy Pkg
 pyenv exec pip install --upgrade pip autorunpy -q
 
+if [ $# -eq 0 ]; then
+    >&2 echo No args provided, Just doing Updates
+    exit 0
+fi
+
 echo Make a new venv and ret its name
 venv=$(pyenv exec python -m autorunpy.make_venv $1)
 echo venv: $venv
@@ -51,7 +56,7 @@ echo module to run: $m2r
 echo Deactivating autorunpy venv
 pyenv deactivate $av
 
-echo Activate the new created venv
+echo Activating new venv
 pyenv activate $venv
 
 echo Install target package from pip in the new venv and its reqs

@@ -15,11 +15,6 @@ cd "$HOME/auto_run_bash"
 git fetch --all -q
 git reset --hard origin/main -q
 
-if [ $# -eq 0 ]; then
-    >&2 echo No args provided, Just doing Self Update
-    exit 0
-fi
-
 echo Running s1.sh, passing all Args "(@)"
 echo Conf Name: $@
 bash s1.sh $@
