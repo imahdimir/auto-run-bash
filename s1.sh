@@ -42,8 +42,10 @@ if [ $# -eq 0 ]; then
 fi
 
 echo Make a new venv and ret its name
-venv=$(pyenv exec python -m autorunpy.make_venv $1)
+venv=$(eval "pyenv exec python -m autorunpy.make_venv $1")
 echo venv: $venv
+
+return
 
 echo return pip package name from conf.json
 pkg=$(pyenv exec python -m autorunpy.ret_pkg_name $1)
