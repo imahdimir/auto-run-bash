@@ -7,7 +7,7 @@ Reqs:
     - pyenv
     - pyenv-virtualenv
 
-arguements:
+args:
     - conf.json stem
 doc
 
@@ -57,7 +57,7 @@ echo return target module name to run in the targe repo
 m2r=$(pyenv exec python -m autorunpy.ret_module_2_run $1)
 echo module to run: $m2r
 
-echo Deactivating autorunpy venv
+echo Deactivating $av venv
 pyenv deactivate $av
 
 echo Activating new venv
@@ -69,7 +69,7 @@ pyenv exec pip install $pkg -q
 
 echo Execute the target module
 echo module to run: $m2r
-pyenv exec python3 -m $m2r
+pyenv exec python -m $m2r
 
 echo Deactivating new venv: $venv
 pyenv deactivate $venv
