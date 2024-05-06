@@ -16,7 +16,6 @@ git fetch --all -q
 git reset --hard origin/main -q
 
 echo Running s1.sh, passing all Args "(@)"
-echo Conf Name: $@
 bash s1.sh $@
 
 if [ $? -eq 0 ]; then
