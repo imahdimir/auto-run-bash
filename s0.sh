@@ -14,7 +14,6 @@ echo Self Update
 cd "$HOME/auto_run_bash"
 git fetch --all -q
 git reset --hard origin/main -q
-cd
 
 echo Running s1.sh, passing all Args "(@)"
 bash s1.sh $@
