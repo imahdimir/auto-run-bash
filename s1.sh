@@ -45,8 +45,6 @@ echo Make a new venv and ret its name
 venv=$(eval "pyenv exec python -m autorunpy.make_venv $1")
 echo venv: $venv
 
-return
-
 echo return pip package name from conf.json
 pkg=$(pyenv exec python -m autorunpy.ret_pkg_name $1)
 echo pkg: $pkg
