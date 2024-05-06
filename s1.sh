@@ -27,7 +27,7 @@ eval "$(pyenv virtualenv-init -)"
 # install the python version for the autorunpy venv if not installed
 pyenv install --skip-existing $pyv &> /dev/null
 
-echo Create the autorunpy venv if not created yet
+echo Creating the autorunpy venv if not created yet
 pyenv virtualenv $pyv $av &> /dev/null
 
 echo Activating $av

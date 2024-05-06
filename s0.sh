@@ -19,7 +19,7 @@ echo Running s1.sh, passing all Args "(@)"
 bash s1.sh $@
 
 if [ $? -eq 0 ]; then
-    echo "DONE"
+    echo "DONE!"
 else
     echo $?
 fi
