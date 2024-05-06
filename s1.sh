@@ -33,7 +33,7 @@ pyenv virtualenv $pyv $av &> /dev/null
 echo Activating $av
 pyenv activate $av &> /dev/null
 
-echo Upgrade pip And autorunpy Pkg
+echo Upgrade pip and autorunpy Pkg
 pyenv exec pip install --upgrade pip autorunpy -q
 
 if [ $# -eq 0 ]; then
