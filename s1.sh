@@ -24,10 +24,10 @@ av=autorunpy
 pyenv install --skip-existing $pyv &> /dev/null
 
 # echo Creating the autorunpy venv if not created yet
-pyenv virtualenv $pyv $av > /dev/null
+pyenv virtualenv $pyv $av &> /dev/null
 
 # echo Activating $av
-pyenv activate $av > /dev/null
+pyenv activate $av &> /dev/null
 
 # echo Upgrade pip and autorunpy Pkg
 pyenv exec pip install --upgrade pip autorunpy -q
