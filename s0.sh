@@ -20,3 +20,4 @@ bash s1.sh $@
 
 if [ $? != 0 ]; then
     echo $?
+fi
