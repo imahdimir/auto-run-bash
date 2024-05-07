@@ -47,7 +47,7 @@ pkg=$(pyenv exec python -m autorunpy.ret_pkg_name $1)
 
 # echo return target module name to run in the targe repo
 m2r=$(pyenv exec python -m autorunpy.ret_module_2_run $1)
-echo module to run: $m2r
+# echo module to run: $m2r
 
 # echo Deactivating $av venv
 pyenv deactivate $av
