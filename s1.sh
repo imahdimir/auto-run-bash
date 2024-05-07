@@ -21,10 +21,10 @@ pyv=3.12.3
 av=autorunpy
 
 # echo Install the python version for the autorunpy venv if not installed
-pyenv install --skip-existing $pyv &> /dev/null
+pyenv install --skip-existing $pyv
 
 # echo Creating the autorunpy venv if not created yet
-pyenv virtualenv $pyv $av &> /dev/null
+pyenv virtualenv $pyv $av
 
 # echo Activating $av
 pyenv activate $av &> /dev/null
