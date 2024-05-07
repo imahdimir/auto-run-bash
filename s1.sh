@@ -11,20 +11,16 @@ args:
     - conf.json stem
 doc
 
-# + pyenv to PATH (crontab doesn't have it)
-export PATH="$(pyenv root)/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # Consts
 pyv=3.12.3
 av=autorunpy
 
-# following lines are needed for pyenv to work properly
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-# install the python version for the autorunpy venv if not installed
+echo Install the python version for the autorunpy venv if not installed
 pyenv install --skip-existing $pyv &> /dev/null
 
 echo Creating the autorunpy venv if not created yet
