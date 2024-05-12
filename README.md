@@ -41,5 +41,6 @@ git clone https://github.com/imahdimir/auto_run_configs
 timedatectl set-timezone America/Los_Angeles
 ```
 
-# Copy .gt.json to $HOME
+# Copy .g.json to $HOME
 # Config Cron
+# alias a="bash ~/auto_run_bash/s0.sh
