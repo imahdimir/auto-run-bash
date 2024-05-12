@@ -17,7 +17,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # Consts
-pyv=3.12.3
+pyv=3.12.2
 av=autorunpy
 
 # echo Install the python version for the autorunpy venv if not installed
