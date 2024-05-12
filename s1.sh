@@ -57,7 +57,7 @@ pyenv activate $venv
 
 # echo Install target package from pip in the new venv and its reqs
 pyenv exec pip install --upgrade pip -q
-pyenv exec pip install $pkg -q
+pyenv exec pip install --upgrade $pkg -q
 
 # echo Execute the target module $m2r
 pyenv exec python -m $m2r
