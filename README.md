@@ -43,4 +43,4 @@ timedatectl set-timezone America/Los_Angeles
 
 # Copy .g.json to $HOME
 # Config Cron
-# alias a="bahs ~/auto_run_bash/s0.sh
+# alias a="bash ~/auto_run_bash/s0.sh
